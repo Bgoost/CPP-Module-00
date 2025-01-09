@@ -4,7 +4,7 @@
 int main()
 {
     // PhoneBook phonebook;
-    UserInput userinput;
+    UserInterface interface;
 
     // phonebook.add_contact("John", "Doe", "JD", "123456789", "secret1");
     // phonebook.add_contact("Jane", "Doe", "Jane", "987654", "secret2");
@@ -15,18 +15,7 @@ int main()
 
     // phonebook.display_all_contacts();
 
-    std::cout << RED << "████▓▓▓▓▒▒▒▒░░░░" << RESET << std::endl;
-    std::cout << BLUE << "████▓▓▓▓▒▒▒▒░░░░" << RESET << std::endl;
-    std::cout << GREEN << "████▓▓▓▓▒▒▒▒░░░░" << RESET << std::endl;
-    std::cout << YELLOW << "████▓▓▓▓▒▒▒▒░░░░" << RESET << std::endl;
-    std::cout << CYAN << "████▓▓▓▓▒▒▒▒░░░░" << RESET << std::endl;
-    std::cout << MAGENTA << "████▓▓▓▓▒▒▒▒░░░░" << RESET << std::endl;
-    std::cout << WHITE << "████▓▓▓▓▒▒▒▒░░░░" << RESET << std::endl;
-    std::cout << BOLDBLACK << "████▓▓▓▓▒▒▒▒░░░░" << RESET << std::endl;
-    std::cout << BOLDRED << "████▓▓▓▓▒▒▒▒░░░░" << RESET << std::endl;
-
-
-    userinput.manager();
+    interface.manager();
 
 
 

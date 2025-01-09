@@ -1,5 +1,5 @@
-#ifndef USERINPUT_HPP
-# define USERINPUT_HPP
+#ifndef USERINTERFACE_HPP
+# define USERINTERFACE_HPP
 
 # include <iostream>
 # include <string>
@@ -7,15 +7,15 @@
 
 // class PhoneBook;
 
-class UserInput
+class UserInterface
 {
     private:
         PhoneBook phonebook;
         std::string input;
         int error;
     public:
-        UserInput();
-        ~UserInput();
+        UserInterface();
+        ~UserInterface();
         void manager();
         void ask_user_contact();
         void search_contact();

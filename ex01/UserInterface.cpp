@@ -1,19 +1,19 @@
 #include "UserInterface.hpp"
 #include "PhoneBook.hpp"
 
-UserInput::UserInput()
+UserInterface::UserInterface()
 {
     input = "";
     error = 0;
-    std::cout << "UserInput created" << std::endl;
+    std::cout << "UserInterface created" << std::endl;
 }
 
-UserInput::~UserInput()
+UserInterface::~UserInterface()
 {
-    std::cout << "UserInput destroyed" << std::endl;
+    std::cout << "UserInterface destroyed" << std::endl;
 }
 
-void UserInput::manager()
+void UserInterface::manager()
 {
     while(1)
     {
@@ -31,7 +31,7 @@ void UserInput::manager()
     }
 }
 
-void UserInput::ask_user_contact()
+void UserInterface::ask_user_contact()
 {
     std::string first_name;
     std::string last_name;
@@ -54,7 +54,7 @@ void UserInput::ask_user_contact()
     std::cout << YELLOW << "Contact added" << RESET << std::endl;
 }
 
-void UserInput::search_contact()
+void UserInterface::search_contact()
 {
     std::cout << "Searching contact" << std::endl;
     phonebook.display_all_contacts();
@@ -64,13 +64,13 @@ void UserInput::search_contact()
 
 }
 
-std::string UserInput::prompt()
+std::string UserInterface::prompt()
 {
     std::cout << "Enter input: ";
     return get_input();
 }
 
-std::string UserInput::get_input()
+std::string UserInterface::get_input()
 {
     if(!getline(std::cin, input))
     {
