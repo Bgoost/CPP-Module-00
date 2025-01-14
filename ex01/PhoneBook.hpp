@@ -5,6 +5,7 @@
 # include "colors.h"
 # include <iostream>
 # include <string>
+# include <cstdlib>
 
 class PhoneBook
 {
@@ -17,7 +18,7 @@ class PhoneBook
         PhoneBook();
         ~PhoneBook();
         void add_contact(std::string first_name, std::string last_name, std::string nickname, std::string phone_number, std::string secret);
-        void display_contact(int index);
+        void display_contact(std::string index);
         void display_all_contacts();
         void print_str(std::string str, int print_pretty);
 

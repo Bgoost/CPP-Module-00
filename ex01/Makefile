@@ -8,7 +8,7 @@ OBJ_DIR				= obj/
 CC					= c++
 CFLAGS				= -Wall -Werror -Wextra -MMD -std=c++98
 RM					= rm -f
-SRCS 				= PhoneBook.cpp Contact.cpp main.cpp UserInterface.cpp
+SRCS 				= PhoneBook.cpp Contact.cpp main.cpp UserInterface.cpp Utils.cpp
 
 OBJ = $(patsubst %.cpp,$(OBJ_DIR)%.o,$(SRCS))
 DEP = $(SRCS:.cpp=.d)

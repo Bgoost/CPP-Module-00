@@ -13,13 +13,33 @@ PhoneBook::~PhoneBook()
     std::cout << "PhoneBook destroyed" << std::endl;
 }
 
-void PhoneBook::display_contact(int index)
+void PhoneBook::display_contact(std::string index)
 {
-    std::cout << "First name: " << contact_arr[index].get_first_name() << std::endl;
-    std::cout << "Last name: " << contact_arr[index].get_last_name() << std::endl;
-    std::cout << "Nickname: " << contact_arr[index].get_nickname() << std::endl;
-    std::cout << "Phone number: " << contact_arr[index].get_phone_number() << std::endl;
-    std::cout << "Secret: " << contact_arr[index].get_secret() << std::endl;
+    for(int i = 0; index[i]; i++)
+    {
+        if(!isdigit(index[i]))
+        {
+            std::cout << "Invalid index, only input valid data [1 - 8]" << std::endl;
+            return;
+        }
+    }
+    if(index.length() > 1)
+    {
+        std::cout << "Invalid index, only input valid data [1 - 8]" << std::endl;
+        return;
+    }
+    int i = index[0] - 48;
+    if((i < 1 || i > 8) || i > len)
+    {
+        std::cout << "Invalid index, only input valid data [1 - 8]" << std::endl;
+        return;
+    }
+    i--;
+    std::cout << "First name: " << contact_arr[i].get_first_name() << std::endl;
+    std::cout << "Last name: " << contact_arr[i].get_last_name() << std::endl;
+    std::cout << "Nickname: " << contact_arr[i].get_nickname() << std::endl;
+    std::cout << "Phone number: " << contact_arr[i].get_phone_number() << std::endl;
+    std::cout << "Secret: " << contact_arr[i].get_secret() << std::endl;
 }
 
 void PhoneBook::display_all_contacts()
