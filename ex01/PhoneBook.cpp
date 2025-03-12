@@ -13,33 +13,38 @@ PhoneBook::~PhoneBook()
     std::cout << "PhoneBook destroyed" << std::endl;
 }
 
-void PhoneBook::display_contact(std::string index)
+int PhoneBook::check_valid_index(const std::string str)
 {
-    for(int i = 0; index[i]; i++)
+    for(int i = 0; str[i]; i++)
     {
-        if(!isdigit(index[i]))
+        if(!isdigit(str[i]))
         {
-            std::cout << "Invalid index, only input valid data [1 - 8]" << std::endl;
-            return;
+            std::cout << "Invalid index, only input valid data [1 - " << len << "]" << std::endl;
+            return (-1);
         }
     }
-    if(index.length() > 1)
+    if(str.length() > 1)
     {
-        std::cout << "Invalid index, only input valid data [1 - 8]" << std::endl;
-        return;
+        std::cout << "Invalid index, only input valid data [1 - " << len << "]" << std::endl;
+        return (-1);
     }
-    int i = index[0] - 48;
+    int i = str[0] - 48;
     if((i < 1 || i > 8) || i > len)
     {
-        std::cout << "Invalid index, only input valid data [1 - 8]" << std::endl;
-        return;
+        std::cout << "Invalid index, only input valid data [1 - " << len << "]" << std::endl;
+        return (-1);
     }
+    return (i);
+}
+
+void PhoneBook::display_contact(int i)
+{
     i--;
-    std::cout << "First name: " << contact_arr[i].get_first_name() << std::endl;
-    std::cout << "Last name: " << contact_arr[i].get_last_name() << std::endl;
-    std::cout << "Nickname: " << contact_arr[i].get_nickname() << std::endl;
-    std::cout << "Phone number: " << contact_arr[i].get_phone_number() << std::endl;
-    std::cout << "Secret: " << contact_arr[i].get_secret() << std::endl;
+    std::cout << "First name: \t" << contact_arr[i].get_first_name() << std::endl;
+    std::cout << "Last name: \t" << contact_arr[i].get_last_name() << std::endl;
+    std::cout << "Nickname: \t" << contact_arr[i].get_nickname() << std::endl;
+    std::cout << "Phone number: \t" << contact_arr[i].get_phone_number() << std::endl;
+    std::cout << "Secret: \t" << contact_arr[i].get_secret() << std::endl;
 }
 
 void PhoneBook::display_all_contacts()

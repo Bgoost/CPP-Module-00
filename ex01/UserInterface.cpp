@@ -20,14 +20,16 @@ void UserInterface::manager()
         std::string input = prompt();
         if(error)
             return;
-        std::cout << "You entered: " << input << std::endl;
         if(input == "exit" || input == "EXIT")
             return;
         else if(input == "add" || input == "ADD")
             ask_user_contact();
         else if(input == "search" || input == "SEARCH")
             search_contact();
-        std::cout << GREEN << "PhoneBook" << RESET << std::endl;
+        else if (input.empty())
+            std::cout << RED << "Can't input an empty string" << RESET << std::endl;
+        else
+            std::cout << RED << "Invalid command, try ADD, SEARCH or EXIT" << RESET << std::endl;
     }
 }
 
@@ -83,11 +85,8 @@ static bool is_num(const std::string &str)
 
 static bool is_empty(const std::string &str)
 {
-    for (int i = 0; i < str[i]; i++)
-    {
-        if(isspace(str[i]))
-            return false;
-    }
+    if(str.empty())
+        return false;
     return true;
 }
 
@@ -100,7 +99,7 @@ void UserInterface::ask_user_contact()
     std::string phone_number;
     std::string secret;
 
-    tmp = ask_user_prompt("Enter first name: ", is_num);
+    tmp = ask_user_prompt("Enter first name: ", is_alpha);
     first_name = tmp;
     tmp = ask_user_prompt("Enter last name: ", is_alpha);
     last_name = tmp;
@@ -126,8 +125,15 @@ void UserInterface::search_contact()
     phonebook.display_all_contacts();
     std::cout << "Enter contact index to reveal more info: ";
     std::string input = get_input();
+    int index = phonebook.check_valid_index(input);
+    while(index == -1)
+    {
+        std::cout << "Enter contact index to reveal more info: ";
+        input = get_input();
+        index = phonebook.check_valid_index(input);
+    }
     std::cout << "You entered: " << input << std::endl;
-    phonebook.display_contact(input);
+    phonebook.display_contact(index);
 }
 
 std::string UserInterface::prompt()
