@@ -14,8 +14,8 @@ OBJ = $(patsubst %.cpp,$(OBJ_DIR)%.o,$(SRCS))
 DEP = $(SRCS:.cpp=.d)
 
 # Build rules
-start:				
-					@make all
+# start:				
+# 					make all
 
 all: 				$(NAME)
 
@@ -25,9 +25,9 @@ $(NAME): 			$(OBJ)
 
 # Compile object files from source files
 $(OBJ_DIR)%.o:		%.cpp Makefile
-					mkdir -p $(@D)
+					@mkdir -p $(@D)
 					@$(CC) $(CFLAGS) -c $< -o $@
-					@echo "\033[1;31Compiling...\033[1;97m "$< "✅"
+					@echo "\033[32mCompiling...\033[1;97m "$< "✅"
 
 clean:
 					@$(RM) -rf $(OBJ_DIR)
@@ -39,5 +39,5 @@ fclean: 			clean
 re: 				fclean all
 
 # Phony targets represent actions not files
-.PHONY: 			start all clean fclean re
+.PHONY: 			all clean fclean re
 -include $(DEP)

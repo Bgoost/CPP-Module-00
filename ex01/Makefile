@@ -8,7 +8,7 @@ OBJ_DIR				= obj/
 CC					= c++
 CFLAGS				= -Wall -Werror -Wextra -MMD -std=c++98
 RM					= rm -f
-SRCS 				= PhoneBook.cpp Contact.cpp main.cpp UserInterface.cpp Utils.cpp
+SRCS 				= PhoneBook.cpp Contact.cpp main.cpp UserInterface.cpp
 
 OBJ = $(patsubst %.cpp,$(OBJ_DIR)%.o,$(SRCS))
 DEP = $(SRCS:.cpp=.d)
@@ -21,7 +21,7 @@ all: 				$(NAME)
 
 $(NAME): 			$(OBJ)
 					@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-					@echo "\033[1;32mAll "$(NAME) "done!!✅\033[1;97m"
+					@echo "\033[32mmAll "$(NAME) "done!!✅\033[1;97m"
 
 # Compile object files from source files
 $(OBJ_DIR)%.o:		%.cpp Makefile

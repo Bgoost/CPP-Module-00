@@ -5,7 +5,6 @@
 # include <string>
 # include <cstdlib>
 # include "PhoneBook.hpp"
-# include "Utils.hpp"
 
 // class PhoneBook;
 
@@ -13,7 +12,6 @@ class UserInterface
 {
     private:
         PhoneBook phonebook;
-        Utils utils;
         std::string input;
         int error;
         // static bool is_alpha(const std::string &str);

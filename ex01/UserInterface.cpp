@@ -4,12 +4,12 @@ UserInterface::UserInterface()
 {
     input = "";
     error = 0;
-    std::cout << "UserInterface created" << std::endl;
+    // std::cout << "UserInterface created" << std::endl;
 }
 
 UserInterface::~UserInterface()
 {
-    std::cout << "UserInterface destroyed" << std::endl;
+    // std::cout << "UserInterface destroyed" << std::endl;
 }
 
 
