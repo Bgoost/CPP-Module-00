@@ -15,14 +15,14 @@ UserInterface::~UserInterface()
 
 void UserInterface::manager()
 {
-    // phonebook.add_contact("a", "a", "a", "1", "1");
-    // phonebook.add_contact("b", "b", "b", "2", "2");
-    // phonebook.add_contact("c", "c", "c", "3", "3");
-    // phonebook.add_contact("d", "d", "d", "4", "4");
-    // phonebook.add_contact("e", "e", "e", "5", "5");
-    // phonebook.add_contact("f", "f", "f", "6", "6");
-    // phonebook.add_contact("g", "g", "g", "7", "7");
-    // phonebook.add_contact("h", "h", "h", "8", "8");
+    phonebook.add_contact("a", "a", "a", "1", "1");
+    phonebook.add_contact("b", "b", "b", "2", "2");
+    phonebook.add_contact("c", "c", "c", "3", "3");
+    phonebook.add_contact("d", "d", "d", "4", "4");
+    phonebook.add_contact("e", "e", "e", "5", "5");
+    phonebook.add_contact("f", "f", "f", "6", "6");
+    phonebook.add_contact("g", "g", "g", "7", "7");
+    phonebook.add_contact("h", "h", "h", "8", "8");
     while(1)
     {
         std::string input = prompt();
@@ -140,8 +140,9 @@ void UserInterface::search_contact()
         input = get_input();
         index = phonebook.check_valid_index(input);
     }
-    std::cout << "You entered: " << input << std::endl;
+    std::cout << CYAN << "═════════════════════════════════════════════" << RESET << std::endl;
     phonebook.display_contact(index);
+    std::cout << CYAN << "═════════════════════════════════════════════" << RESET << std::endl;
 }
 
 std::string UserInterface::prompt()
