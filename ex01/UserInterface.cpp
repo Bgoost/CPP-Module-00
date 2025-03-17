@@ -59,7 +59,7 @@ std::string UserInterface::ask_user_prompt(std::string prompt, bool (*f)(const s
     return tmp;
 }
 
-static bool is_alpha(const std::string &str)
+bool is_alpha(const std::string &str)
 {
     for (int i = 0; i < str[i]; i++)
     {
@@ -69,7 +69,7 @@ static bool is_alpha(const std::string &str)
     return true;
 }
 
-static bool is_alnum(const std::string &str)
+bool is_alnum(const std::string &str)
 {
     for (int i = 0; i < str[i]; i++)
     {
@@ -81,7 +81,7 @@ static bool is_alnum(const std::string &str)
 
 
 
-static bool is_num(const std::string &str)
+bool is_num(const std::string &str)
 {
     for (int i = 0; i < str[i]; i++)
     {
@@ -91,7 +91,7 @@ static bool is_num(const std::string &str)
     return true;
 }
 
-static bool is_empty(const std::string &str)
+bool is_empty(const std::string &str)
 {
     if(str.empty())
         return false;
